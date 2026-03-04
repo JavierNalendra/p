@@ -22,7 +22,7 @@ function Sidebar() {
 
       <nav className="space-y-1">
         {navItems.map((item) => (
-          <SidebarItem key={item.label} label={item.label} icon={<span className="text-xs">{item.icon}</span>} active={item.active} />
+          <SidebarItem key={item.label} label={item.label} icon={<span aria-hidden="true" className="text-xs">{item.icon}</span>} active={item.active} />
         ))}
       </nav>
 
@@ -30,7 +30,7 @@ function Sidebar() {
         <div className="border-t border-slate-200 pt-3">
           <nav className="space-y-1">
             {secondaryItems.map((item) => (
-              <SidebarItem key={item.label} label={item.label} icon={<span className="text-xs">{item.icon}</span>} />
+              <SidebarItem key={item.label} label={item.label} icon={<span aria-hidden="true" className="text-xs">{item.icon}</span>} />
             ))}
           </nav>
         </div>
