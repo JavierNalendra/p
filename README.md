@@ -1,16 +1,81 @@
-# React + Vite
+# p
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small Vite + React + Tailwind CSS starter app with a componentized UI shell.
 
-Currently, two official plugins are available:
+This repository contains a frontend application scaffolded with Vite and React, styled using Tailwind CSS, and organized into reusable UI components and page views.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Repository snapshot**
+- **Tech:** Vite, React, Tailwind CSS, PostCSS
+- **Layout:** component-based UI (Topbar, Sidebar, AppShell, pages)
 
-## React Compiler
+**Quick start**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Prerequisites: Node 18+ and npm (or yarn/pnpm).
 
-## Expanding the ESLint configuration
+Install dependencies:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+Run the dev server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+If your package manager uses different script names (yarn/pnpm), replace `npm run` accordingly.
+
+**Project structure**
+
+- `index.html` — App entry HTML
+- `vite.config.js` — Vite configuration
+- `tailwind.config.js` / `postcss.config.js` — Tailwind and PostCSS setup
+- `src/main.jsx` — App bootstrap and React root
+- `src/App.jsx` — App-level routing / shell
+- `src/index.css` — Tailwind imports and global styles
+- `src/components/` — Reusable UI components (AppShell, Topbar, Sidebar, SidebarItem, IconButton, UserProfileCard, etc.)
+- `src/pages/` — Page views (Dashboard, Explore, Events, Requests, Configuration, Curation, RiskCenter, AccessReviews)
+
+See the `src` tree for full details and component implementations.
+
+**Development notes**
+
+- The app uses Tailwind CSS for utility-first styling. Edit `tailwind.config.js` to extend the theme.
+- UI is laid out using a shell component pattern: `AppShell.jsx` composes `Sidebar`, `Topbar`, and `ContentContainer`.
+- Icons are centralized in `src/components/icons.jsx` and shared via `IconButton.jsx`.
+
+**Recommended editor setup**
+
+- Install the ESLint and Prettier (or similar) extensions for consistent formatting.
+- Use the Tailwind CSS IntelliSense extension for class name autocompletion.
+
+**Contribution**
+
+This repository is organized for front-end development. To contribute, create a branch off `main`, add a descriptive commit, and open a PR describing changes.
+
+**License**
+
+Check the repository or ask the maintainer for licensing details.
+
+---
+
+If you'd like, I can also:
+
+- run the app locally and confirm the dev server starts
+- add a short development checklist or contributor guide
+- create a more detailed CODEOWNERS / CONTRIBUTING file
+
+See the README in this repo: [README.md](README.md)
