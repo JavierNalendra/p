@@ -38,18 +38,54 @@ npm run preview
 
 If your package manager uses different script names (yarn/pnpm), replace `npm run` accordingly.
 
-**Project structure**
 
-- `index.html` — App entry HTML
-- `vite.config.js` — Vite configuration
-- `tailwind.config.js` / `postcss.config.js` — Tailwind and PostCSS setup
-- `src/main.jsx` — App bootstrap and React root
-- `src/App.jsx` — App-level routing / shell
-- `src/index.css` — Tailwind imports and global styles
-- `src/components/` — Reusable UI components (AppShell, Topbar, Sidebar, SidebarItem, IconButton, UserProfileCard, etc.)
-- `src/pages/` — Page views (Dashboard, Explore, Events, Requests, Configuration, Curation, RiskCenter, AccessReviews)
+**Project structure (detailed)**
 
-See the `src` tree for full details and component implementations.
+Root files
+
+- `package.json` — project metadata and npm scripts (`dev`, `build`, `preview`, `lint`).
+- `vite.config.js` — Vite build/dev configuration and plugins (React plugin enabled).
+- `tailwind.config.js` — Tailwind CSS configuration (theme extensions, content paths).
+- `postcss.config.js` — PostCSS plugins (Tailwind, Autoprefixer).
+- `eslint.config.js` — ESLint configuration for linting rules used in development.
+- `index.html` — HTML entry point that loads the Vite-built bundle.
+- `public/` — Static assets that are copied to the build output as-is.
+
+Source (`src/`)
+
+- `src/main.jsx` — React entry: mounts the app and includes global providers (router, context providers if present).
+- `src/App.jsx` — Top-level app component that composes the application shell and sets up routing between pages.
+- `src/index.css` — Global stylesheet importing Tailwind base/components/utilities and any custom CSS.
+
+Components (`src/components/`)
+
+- `AppShell.jsx` — Layout wrapper composing `Sidebar`, `Topbar`, and the main content area.
+- `ContentContainer.jsx` — A container component for page content that applies consistent padding and responsive behavior.
+- `Topbar.jsx` — Top navigation bar, typically contains page title, actions, and profile/menu controls.
+- `Sidebar.jsx` — Collapsible or fixed navigation panel that contains `SidebarItem` entries.
+- `SidebarItem.jsx` — A single navigation entry used by `Sidebar` (icon + label + link handling).
+- `IconButton.jsx` — Small button component that renders an icon with accessible button semantics.
+- `icons.jsx` — Centralized icon exports used across components to keep icons consistent.
+- `UserProfileCard.jsx` — A small user/profile UI element used in the topbar or sidebar.
+
+Pages (`src/pages/`)
+
+- `DashboardPage.jsx` — Main overview/dashboard view with cards, charts, or summaries.
+- `ExplorePage.jsx` — Exploration view for browsing resources or content.
+- `EventsPage.jsx` — Timeline or list of events and activities.
+- `RequestsPage.jsx` — List or management view for user requests.
+- `ConfigurationPage.jsx` — App settings and configuration UI.
+- `CurationPage.jsx` — Curator-focused view for managing curated items or rules.
+- `RiskCenterPage.jsx` — Risk-related summaries, alerts, or actions.
+- `AccessReviewsPage.jsx` — Pages for reviewing access rights and approvals.
+
+Other notes
+
+- The UI is organized around a shell layout (`AppShell`) to make page views minimal and focused on content.
+- Icons and small UI primitives are centralized in `src/components` to encourage reuse and consistent styling.
+- Scripts defined in `package.json` are: `dev` (starts Vite dev server), `build` (production build), `preview` (serve built output), and `lint` (run ESLint).
+
+Refer to the `src` and `public` directories for concrete implementations of each component and page.
 
 **Development notes**
 
